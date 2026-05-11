@@ -1,0 +1,33 @@
+{
+  "expo": {
+    "name": "Aksa Bali",
+    "slug": "aksabali",
+    "scheme": "aksabali",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "experiments": {
+      "typedRoutes": true
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "android": {
+      "package": "app.aksabali",
+      "adaptiveIcon": {
+        "backgroundColor": "#B91C1C"
+      }
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "app.aksabali"
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      }
+    }
+  }
+}
