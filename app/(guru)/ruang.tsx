@@ -11,13 +11,16 @@ export default function RuangGuru() {
         <View>
           <Text className="text-xs font-extrabold uppercase tracking-widest text-primary">Ruang guru</Text>
           <Text className="mt-2 text-3xl font-extrabold text-ink">{user?.display_name || "Guru"}.</Text>
-          <Text className="mt-1 text-sm text-muted-foreground">Host game kelas, kontrol soal, lihat aktivitas.</Text>
+          <Text className="mt-1 text-sm leading-6 text-muted-foreground">
+            Buat room game, kontrol jalannya soal, dan lihat aktivitas kelas.
+          </Text>
         </View>
 
         <View className="rounded-2xl border border-border bg-rice p-5">
-          <Text className="text-base font-bold text-ink">Aksi cepat</Text>
+          <Text className="text-base font-bold text-ink">Cara mulai</Text>
           <Text className="mt-2 text-sm leading-6 text-muted-foreground">
-            Tab "Host Game" untuk buat room baru. Statistik room akan muncul di sini setelah endpoint dipasang.
+            Buka tab <Text className="font-bold text-ink">Host Game</Text> untuk bikin room baru. Statistik kelas
+            bakal muncul di sini.
           </Text>
         </View>
       </ScrollView>

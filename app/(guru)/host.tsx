@@ -17,7 +17,7 @@ const CATEGORIES = [
 ];
 
 const MODES = [
-  { id: "kahoot", label: "Kahoot acak" },
+  { id: "acak", label: "Acak" },
   { id: "huruf", label: "Huruf" },
   { id: "kata", label: "Kata" }
 ];
@@ -26,8 +26,8 @@ type CreateResponse = { session: { pin: string } };
 
 export default function HostScreen() {
   const router = useRouter();
-  const [title, setTitle] = useState("Kahoot Aksa Bali");
-  const [mode, setMode] = useState("kahoot");
+  const [title, setTitle] = useState("Game Aksa Bali");
+  const [mode, setMode] = useState("acak");
   const [categories, setCategories] = useState<string[]>(["semua"]);
   const [questionCount, setQuestionCount] = useState("10");
   const [seconds, setSeconds] = useState("20");

@@ -28,8 +28,8 @@ export function AppHeader() {
         </View>
         <View>
           <Text className="text-base font-extrabold text-ink">Aksa Bali</Text>
-          <Text className="text-[0.6rem] font-bold uppercase tracking-widest text-primary">
-            {user ? user.role : "Tamu"}
+          <Text className="text-[0.6rem] font-bold uppercase tracking-widest text-muted-foreground">
+            {user ? user.display_name?.split(" ")[0] || user.role : "Mode tamu"}
           </Text>
         </View>
       </View>

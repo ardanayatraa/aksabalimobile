@@ -9,7 +9,7 @@ type Props = {
 
 const options: { value: PickerRole; label: string; hint: string }[] = [
   { value: "siswa", label: "Siswa", hint: "Latihan nyurat, kuis, ikut game kelas" },
-  { value: "pengajar", label: "Guru", hint: "Host game Kahoot untuk kelas" }
+  { value: "pengajar", label: "Guru", hint: "Host game untuk kelas" }
 ];
 
 export function RolePicker({ value, onChange }: Props) {

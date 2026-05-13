@@ -13,6 +13,7 @@ export type AuthState = {
     displayName: string;
     role: Exclude<Role, "admin">;
   }) => Promise<User>;
+  signInWithGoogle: () => Promise<User | null>;
   signOut: () => Promise<void>;
   refresh: () => Promise<void>;
 };

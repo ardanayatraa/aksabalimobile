@@ -79,9 +79,9 @@ export default function GameScreen() {
         <ScrollView contentContainerStyle={{ padding: 20, gap: 20 }}>
           <View>
             <Text className="text-xs font-extrabold uppercase tracking-widest text-primary">Game</Text>
-            <Text className="mt-2 text-3xl font-extrabold text-ink">Login dulu.</Text>
-            <Text className="mt-1 text-sm text-muted-foreground">
-              Buat join game kelas, kamu perlu akun supaya skor masuk ke leaderboard.
+            <Text className="mt-2 text-3xl font-extrabold text-ink">Masuk dulu yuk.</Text>
+            <Text className="mt-1 text-sm leading-6 text-muted-foreground">
+              Skor kamu cuma masuk leaderboard kalau udah punya akun. Tenang, login pakai Google cuma sebentar.
             </Text>
           </View>
           <Button label="Masuk akun" onPress={() => router.push("/account" as never)} />
@@ -98,8 +98,8 @@ export default function GameScreen() {
           <View>
             <Text className="text-xs font-extrabold uppercase tracking-widest text-primary">Game</Text>
             <Text className="mt-2 text-3xl font-extrabold text-ink">Gabung pakai PIN.</Text>
-            <Text className="mt-1 text-sm text-muted-foreground">
-              Minta PIN dari guru, masuk room, jawab soal aksara.
+            <Text className="mt-1 text-sm leading-6 text-muted-foreground">
+              Minta PIN dari guru, masukin di sini, terus jawab soal aksara bareng kelas.
             </Text>
           </View>
 

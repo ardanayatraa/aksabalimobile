@@ -20,7 +20,8 @@ export default function SettingsScreen() {
         <View className="rounded-2xl border border-border bg-rice p-5">
           <Text className="text-xs font-extrabold uppercase tracking-widest text-muted-foreground">Tentang</Text>
           <Text className="mt-2 text-sm leading-6 text-muted-foreground">
-            Aksa Bali Mobile v0.1.0 — masih dalam pengembangan. Fitur penuh segera hadir.
+            Aksa Bali Mobile · v0.1.0 (early access). Lagi rajin update — kalau ada masukan, kontak{" "}
+            <Text className="font-bold text-ink">hi@aksabali.app</Text>.
           </Text>
         </View>
       </ScrollView>

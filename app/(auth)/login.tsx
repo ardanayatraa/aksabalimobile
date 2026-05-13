@@ -1,6 +1,6 @@
 import { Link, useRouter } from "expo-router";
 import { useState } from "react";
-import { Alert, KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
+import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "../../components/Button";
 import { Field } from "../../components/Field";
@@ -8,10 +8,11 @@ import { homePathForRole, useAuth } from "../../lib/auth";
 
 export default function LoginScreen() {
   const router = useRouter();
-  const { signIn } = useAuth();
+  const { signIn, signInWithGoogle } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   async function submit() {
@@ -27,12 +28,18 @@ export default function LoginScreen() {
     }
   }
 
-  function loginWithGoogle() {
-    Alert.alert(
-      "Belum tersedia",
-      "Login dengan Google belum di-wire. Pakai email dulu ya — atau lanjut sebagai tamu.",
-      [{ text: "Oke" }]
-    );
+  async function loginWithGoogle() {
+    setGoogleLoading(true);
+    setError(null);
+    try {
+      const user = await signInWithGoogle();
+      if (!user) return; // user batalin
+      router.replace(homePathForRole(user.role) as never);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Login Google gagal.");
+    } finally {
+      setGoogleLoading(false);
+    }
   }
 
   return (
@@ -77,7 +84,12 @@ export default function LoginScreen() {
             <View className="h-px flex-1 bg-border" />
           </View>
 
-          <Button label="Masuk dengan Google" onPress={loginWithGoogle} variant="secondary" />
+          <Button
+            label="Masuk dengan Google"
+            onPress={loginWithGoogle}
+            loading={googleLoading}
+            variant="secondary"
+          />
 
           <View className="mt-8 flex-row items-center justify-center gap-2">
             <Text className="text-sm text-muted-foreground">Belum punya akun?</Text>

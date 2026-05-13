@@ -159,14 +159,14 @@ export default function QuizScreen() {
             )}
             {!user && (
               <Text className="mt-3 text-center text-xs text-muted-foreground">
-                Login untuk simpan progres kuis.
+                Login dulu biar skor masuk progres.
               </Text>
             )}
           </View>
 
           <View className="gap-3">
-            <Button label="Ulangi kuis" onPress={() => router.replace(`/quiz/${lesson.id}` as never)} />
-            <Button label="Kembali ke pelajaran" onPress={() => router.back()} variant="secondary" />
+            <Button label="Coba lagi" onPress={() => router.replace(`/quiz/${lesson.id}` as never)} />
+            <Button label="Balik ke pelajaran" onPress={() => router.back()} variant="secondary" />
           </View>
         </ScrollView>
       </SafeAreaView>
@@ -187,7 +187,7 @@ export default function QuizScreen() {
             Soal {index + 1} / {questions.length}
           </Text>
           <Text className="mt-2 text-2xl font-extrabold text-ink">
-            {current.type === "glyph-to-latin" ? "Apa bacaan aksara ini?" : "Aksara mana yang dibaca:"}
+            {current.type === "glyph-to-latin" ? "Aksara ini dibaca apa?" : "Yang dibaca seperti ini:"}
           </Text>
         </View>
 
@@ -240,7 +240,7 @@ export default function QuizScreen() {
             }`}
           >
             <Text className={`text-sm font-bold ${isCorrect ? "text-[#2F5C3F]" : "text-destructive"}`}>
-              {isCorrect ? "Benar!" : `Salah. Jawaban: ${current.answer}`}
+              {isCorrect ? "Mantap, benar!" : `Belum tepat. Jawabannya: ${current.answer}`}
             </Text>
           </View>
         )}

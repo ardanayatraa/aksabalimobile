@@ -8,6 +8,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ActivityIndicator, View } from "react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { AuthContext, fetchMe, homePathForRole, loginRequest, logoutRequest, registerRequest } from "../lib/auth";
+import { signInWithGoogleWebFlow } from "../lib/google-signin";
 import { readToken } from "../lib/token";
 import type { Role, User } from "../lib/types";
 
@@ -60,6 +61,17 @@ function useAuthState() {
         const data = await registerRequest(input);
         setUser(data.user);
         return data.user;
+      },
+      async signInWithGoogle() {
+        const result = await signInWithGoogleWebFlow();
+        if (!result.ok) {
+          if (result.reason === "cancelled") return null;
+          throw new Error(result.message || "Login Google gagal.");
+        }
+        // Token udah di-saved oleh helper. Tinggal fetch profile.
+        const me = await fetchMe();
+        setUser(me);
+        return me;
       },
       async signOut() {
         await logoutRequest();

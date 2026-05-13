@@ -1,3 +1,8 @@
+// Mobile lesson data — aksara di-construct dari codepoint via shared helper
+// di lib/aksara-codepoints. TIDAK ada character literal aksara di file ini.
+
+import { CP, glyph as fromCp } from "./aksara-codepoints";
+
 export type Glyph = {
   char: string;
   latin: string;
@@ -11,54 +16,54 @@ export type Lesson = {
 };
 
 const wrehastaSequence: Glyph[] = [
-  { char: "ᬳ", latin: "Ha" },
-  { char: "ᬦ", latin: "Na" },
-  { char: "ᬘ", latin: "Ca" },
-  { char: "ᬭ", latin: "Ra" },
-  { char: "ᬓ", latin: "Ka" },
-  { char: "ᬤ", latin: "Da" },
-  { char: "ᬢ", latin: "Ta" },
-  { char: "ᬲ", latin: "Sa" },
-  { char: "ᬯ", latin: "Wa" },
-  { char: "ᬮ", latin: "La" },
-  { char: "ᬫ", latin: "Ma" },
-  { char: "ᬕ", latin: "Ga" },
-  { char: "ᬩ", latin: "Ba" },
-  { char: "ᬗ", latin: "Nga" },
-  { char: "ᬧ", latin: "Pa" },
-  { char: "ᬚ", latin: "Ja" },
-  { char: "ᬬ", latin: "Ya" },
-  { char: "ᬜ", latin: "Nya" }
+  { char: fromCp(CP.ha),  latin: "Ha" },
+  { char: fromCp(CP.na),  latin: "Na" },
+  { char: fromCp(CP.ca),  latin: "Ca" },
+  { char: fromCp(CP.ra),  latin: "Ra" },
+  { char: fromCp(CP.ka),  latin: "Ka" },
+  { char: fromCp(CP.da),  latin: "Da" },
+  { char: fromCp(CP.ta),  latin: "Ta" },
+  { char: fromCp(CP.sa),  latin: "Sa" },
+  { char: fromCp(CP.wa),  latin: "Wa" },
+  { char: fromCp(CP.la),  latin: "La" },
+  { char: fromCp(CP.ma),  latin: "Ma" },
+  { char: fromCp(CP.ga),  latin: "Ga" },
+  { char: fromCp(CP.ba),  latin: "Ba" },
+  { char: fromCp(CP.nga), latin: "Nga" },
+  { char: fromCp(CP.pa),  latin: "Pa" },
+  { char: fromCp(CP.ja),  latin: "Ja" },
+  { char: fromCp(CP.ya),  latin: "Ya" },
+  { char: fromCp(CP.nya), latin: "Nya" }
 ];
 
 const swaraSequence: Glyph[] = [
-  { char: "ᬅ", latin: "A" },
-  { char: "ᬆ", latin: "A tedung" },
-  { char: "ᬇ", latin: "I" },
-  { char: "ᬈ", latin: "I tedung" },
-  { char: "ᬉ", latin: "U" },
-  { char: "ᬊ", latin: "U tedung" },
-  { char: "ᬋ", latin: "Ra repa" },
-  { char: "ᬌ", latin: "Ra repa tedung" },
-  { char: "ᬍ", latin: "La lenga" },
-  { char: "ᬎ", latin: "La lenga tedung" },
-  { char: "ᬏ", latin: "E" },
-  { char: "ᬐ", latin: "Ai" },
-  { char: "ᬑ", latin: "O" },
-  { char: "ᬒ", latin: "O tedung" }
+  { char: fromCp(CP.akara),         latin: "A" },
+  { char: fromCp(CP.akaraTedung),   latin: "A tedung" },
+  { char: fromCp(CP.ikara),         latin: "I" },
+  { char: fromCp(CP.ikaraTedung),   latin: "I tedung" },
+  { char: fromCp(CP.ukara),         latin: "U" },
+  { char: fromCp(CP.ukaraTedung),   latin: "U tedung" },
+  { char: fromCp(CP.raRepa),        latin: "Ra repa" },
+  { char: fromCp(CP.raRepaTedung),  latin: "Ra repa tedung" },
+  { char: fromCp(CP.laLenga),       latin: "La lenga" },
+  { char: fromCp(CP.laLengaTedung), latin: "La lenga tedung" },
+  { char: fromCp(CP.ekara),         latin: "E" },
+  { char: fromCp(CP.aiKara),        latin: "Ai" },
+  { char: fromCp(CP.okara),         latin: "O" },
+  { char: fromCp(CP.okaraTedung),   latin: "O tedung" }
 ];
 
 const angkaSequence: Glyph[] = [
-  { char: "᭐", latin: "0" },
-  { char: "᭑", latin: "1" },
-  { char: "᭒", latin: "2" },
-  { char: "᭓", latin: "3" },
-  { char: "᭔", latin: "4" },
-  { char: "᭕", latin: "5" },
-  { char: "᭖", latin: "6" },
-  { char: "᭗", latin: "7" },
-  { char: "᭘", latin: "8" },
-  { char: "᭙", latin: "9" }
+  { char: fromCp(CP.digit0), latin: "0" },
+  { char: fromCp(CP.digit1), latin: "1" },
+  { char: fromCp(CP.digit2), latin: "2" },
+  { char: fromCp(CP.digit3), latin: "3" },
+  { char: fromCp(CP.digit4), latin: "4" },
+  { char: fromCp(CP.digit5), latin: "5" },
+  { char: fromCp(CP.digit6), latin: "6" },
+  { char: fromCp(CP.digit7), latin: "7" },
+  { char: fromCp(CP.digit8), latin: "8" },
+  { char: fromCp(CP.digit9), latin: "9" }
 ];
 
 function chunk<T>(arr: T[], size: number): T[][] {

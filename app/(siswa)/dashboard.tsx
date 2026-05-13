@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { Lock } from "lucide-react-native";
+import { Gamepad2, Lock } from "lucide-react-native";
 import { useMemo, useState } from "react";
 import { Alert, Pressable, ScrollView, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -67,10 +67,24 @@ function PelajaranTab() {
       <View>
         <Text className="text-xs font-extrabold uppercase tracking-widest text-primary">Pelajaran</Text>
         <Text className="mt-2 text-3xl font-extrabold text-ink">Pilih bagian.</Text>
-        <Text className="mt-1 text-sm text-muted-foreground">
-          Tiap bagian berisi 3 aksara. Selesaikan untuk dapat 3 bintang.
+        <Text className="mt-1 text-sm leading-6 text-muted-foreground">
+          Tiap bagian 3 aksara. Selesaikan untuk dapat 3 bintang.
         </Text>
       </View>
+
+      <Pressable
+        onPress={() => router.push("/(siswa)/game" as never)}
+        className="flex-row items-center gap-3 rounded-2xl border border-border bg-rice p-4 active:opacity-70"
+      >
+        <View className="h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
+          <Gamepad2 size={20} color="#B91C1C" strokeWidth={2} />
+        </View>
+        <View className="flex-1">
+          <Text className="text-sm font-extrabold text-ink">Punya PIN dari guru?</Text>
+          <Text className="mt-0.5 text-xs text-muted-foreground">Tap buat gabung room kelas.</Text>
+        </View>
+        <Text className="text-xs font-bold uppercase tracking-widest text-primary">Gabung →</Text>
+      </Pressable>
 
       {(Object.entries(grouped) as [Lesson["group"], Lesson[]][]).map(([group, items]) =>
         items.length === 0 ? null : (
@@ -90,7 +104,7 @@ function PelajaranTab() {
                     if (allLocked) {
                       Alert.alert(
                         "Belum tersedia",
-                        "Bagian ini belum punya pola stroke. Pilih bagian lain.",
+                        "Bagian ini belum punya pola stroke. Coba bagian lain ya.",
                         [{ text: "Oke" }]
                       );
                       return;
@@ -119,7 +133,7 @@ function KarakterTab() {
   function openCharacter(glyph: Glyph) {
     const entry = glyphMap.get(glyph.char);
     if (!entry?.svg_url) {
-      Alert.alert("Belum tersedia", `Pola stroke untuk "${glyph.latin}" belum tersedia. Coba aksara lain.`, [
+      Alert.alert("Belum tersedia", `"${glyph.latin}" lagi disiapin polanya. Coba aksara lain dulu.`, [
         { text: "Oke" }
       ]);
       return;
@@ -132,8 +146,8 @@ function KarakterTab() {
       <View>
         <Text className="text-xs font-extrabold uppercase tracking-widest text-primary">Karakter</Text>
         <Text className="mt-2 text-3xl font-extrabold text-ink">Semua aksara.</Text>
-        <Text className="mt-1 text-sm text-muted-foreground">
-          Tile yang berwarna bisa di-tap untuk latihan stroke. Tile kunci belum tersedia.
+        <Text className="mt-1 text-sm leading-6 text-muted-foreground">
+          Tap aksara yang aktif buat mulai latihan stroke. Yang terkunci segera nyusul.
         </Text>
       </View>
 

@@ -64,7 +64,7 @@ export default function LessonDetail() {
 
         <View className="gap-3">
           <Text className="text-xs font-extrabold uppercase tracking-widest text-muted-foreground">
-            Aksara di bagian ini
+            Aksara di bagian ini · Tap buat lihat animasinya
           </Text>
           {lesson.glyphs.map((glyph, index) => {
             const locked = !glyphMap.get(glyph.char)?.svg_url;
@@ -125,7 +125,7 @@ export default function LessonDetail() {
         </View>
         {allLocked && (
           <Text className="text-center text-xs text-muted-foreground">
-            Belum ada aksara di bagian ini yang punya pola stroke.
+            Pola stroke bagian ini lagi disiapin. Pilih bagian lain dulu ya.
           </Text>
         )}
       </ScrollView>
